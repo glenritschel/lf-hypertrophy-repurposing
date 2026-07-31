@@ -12,14 +12,18 @@ A discovery-stage, fully in-silico analysis of ligamentum flavum (LF) hypertroph
 
 ## Key result
 
-The single-cell-derived activated-fibroblast signature (fibrillar collagens, SLRP proteoglycans, HTRA1, MFGE8, POSTN, FN1, S100A4) reproduces in independent bulk LF microarray data: **18 of 20 genes concordant, rank-enrichment p = 1.5e-7**, despite bulk-tissue dilution and an age-based contrast.
+The single-cell-derived activated-fibroblast signature (fibrillar collagens, SLRP proteoglycans, HTRA1, MFGE8, POSTN, FN1, S100A4) reproduces across **two independent single-cell cohorts and one independent bulk cohort on a different platform**:
 
-![replication](results/LF_replication_figure.png)
+- **GSE267819** (independent single-cell, 3 hypertrophic donors, 13,567 fibroblasts): all **22/22** signature genes up in activated fibroblasts, rank-enrichment **p = 9.4e-16**.
+- **GSE113212** (independent bulk microarray): **18/20** genes concordant, rank-enrichment **p = 1.5e-7**, despite bulk-tissue dilution and an age-based contrast.
+
+![replication](results/LF_replication_figure_v2.png)
 
 ## Data (public)
 
 - **GSE294458** — human LF single-cell RNA-seq (10x Genomics; 1 hypertrophic vs 1 non-hypertrophic). Discovery.
-- **GSE113212** — human LF bulk microarray (Agilent; 4 elderly/hypertrophic vs 4 young). Independent replication.
+- **GSE267819** — human LF single-cell RNA-seq (10x Genomics; 3 hypertrophic donors; Ham et al.). Independent single-cell replication.
+- **GSE113212** — human LF bulk microarray (Agilent; 4 elderly/hypertrophic vs 4 young). Independent bulk replication.
 
 No unpublished or author-provided data are used. Notebooks download the data directly from GEO.
 
@@ -28,6 +32,7 @@ No unpublished or author-provided data are used. Notebooks download the data dir
 | Notebook | Purpose |
 |---|---|
 | `notebooks/LF_GSE294458_pilot.ipynb` | Single-cell QC (incl. erythrocyte removal), compartment annotation, and the within-fibroblast activated-vs-resting **state** signature. Exports the UP-anchored signature. |
+| `notebooks/LF_GSE267819_replication.ipynb` | Independent **single-cell** replication: derives the activated-vs-resting signature in a second LF scRNA cohort (GSE267819) and tests concordance with the pilot (22/22 genes up, p = 9.4e-16). |
 | `notebooks/LF_GSE113212_replication.ipynb` | Cross-platform replication test of the signature in independent bulk LF (differential expression + rank enrichment). Produces the figure. |
 | `notebooks/LF_L1000_reversal_dryrun.ipynb` | Connectivity-based reversal (LINCS L1000 / L1000CDS2) with guards — an **informative negative** (see below). |
 | `notebooks/LF_reversal_v2_approved.ipynb` | UP-anchored reversal filtered to approved, non-oncology drugs via the Broad Drug Repurposing Hub. |
